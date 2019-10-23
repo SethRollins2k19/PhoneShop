@@ -1,0 +1,47 @@
+.wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+.title {
+	font-size: 32px;
+}
+.title::before {
+	color: red;
+	content: 'P';
+}
+.title::after {
+	font-weight: 100;
+	content: ' Shop';
+}
+.finder {
+	display: flex;
+	justify-content: center;
+	width: 50%;
+	max-width: 700px;
+}
+.finder-input {
+	border: 1.5px solid rgba(0,0,0,0.155);
+	height: 22px;
+	width: 80%;
+}
+.finder-confirm {
+	margin-right: 0;
+	height: auto;
+	width: 10%;
+	min-width: 50px;
+	background: rgba(0,0,0,0.155);
+	border: none;
+}
+.finder-input:focus{
+	outline: none;
+	border: 1.5px solid rgba(230,208,23,1);
+}
+.finder-input:focus ~ .finder-confirm{
+	background: rgba(230,208,23,0.6);;
+}
+.finder-input:focus ~ .finder-confirm:hover {
+	cursor: pointer;
+	background: rgba(230,208,23,1);
+}
