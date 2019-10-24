@@ -46,6 +46,94 @@
 	background: rgba(230,208,23,1);
 }
 .content{
+	width: 70%;
+	max-width: 1400px;
 	margin: 0 auto;
+}
+.sort-block{
+	display: flex;
+	justify-content:flex-start;
+}
+.sort-label{
+	
+}
+.types-of-sort {
+	padding: 0;
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+}
+.sort-type {
+	display: block;
+	height: auto;
+	margin-left: 10px;
+}
+.sort-link {
+	text-decoration: none;
+}
+.content-block {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	height: auto;
+	background: lightgreen;
+	width: 100%;
+	grid-gap: 10px;
+}
+.block-sect {
+	border: 1.5px solid rgba(0,0,0,0.455);
+	display: flex;
+}
+.devisec-part{
+	padding: 20px;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.card-phone{
+	padding: 10px;
+	text-align: center;
+	width: 30%;
+	border: 2px solid #7923e0;
+}
+.card-img {
+	min-width: 100px;
+	width: 100%;
+	max-width: 300px;
+}
+.phone-brand-name{
+	text-align: left;
+	font-weight: 200;
+	font-size: 14px;
+}
+.phone-name{
+	text-align: left;
+	color: blue;
+}
+.phone-name:hover{
+	color: red;
+}
+.price {
+	font-size: 26px;
+	text-align: left;
+	margin: 0;
+}
+.price:hover {
+	color: red;
+}
+.reviews{
+	text-align: left;
+}
+.span-rate {
+	background: green;
+	color: white;
+	padding: 2px;
+}
 
+
+
+
+
+
+
+	padding: 0;
+	font-size: 26px;
 }
