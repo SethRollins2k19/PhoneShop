@@ -128,12 +128,8 @@
 	padding: 2px;
 }
 
-
-
-
-
-
-
-	padding: 0;
-	font-size: 26px;
+@media only screen and (max-width: 600px){
+	.card-phone{
+		width: 100%;
+	}
 }
