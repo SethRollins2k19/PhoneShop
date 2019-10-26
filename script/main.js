@@ -1,60 +1,12 @@
 'use strict'
-
+let urlStack = ['files/Xiaomi-Redmi-Note-8-Pro.jpg','files/Xiaomi-Redmi-Note-8-Pro-Pink.jpg','files/Xiaomi-Redmi-Note-8-Pro-Majenta.jpg','files/Xiaomi-Redmi-Note-8-Pro-Blue.jpg']
 let dataPhones = generateMassPhones();
-// {	
-// 	imgUrl: 'files/Xiaomi-Redmi-Note-8-Pro.jpg',
-// 	name: 'XIAOMI',
-// 	description: 'Смартфон Xiaomi Redmi',
-// 	price: Math.floor(Math.random()*90000+10000),
-// 	reaiting: (Math.random()*4 + 1).toFixed(1),
-// 	reviews: Math.floor(Math.random()*7+10),
-// },
-// {
-// 	imgUrl: 'files/Xiaomi-Redmi-Note-8-Pro.jpg',
-// 	name: 'XIAOMI',
-// 	description: 'Смартфон Xiaomi Redmi',
-// 	price: Math.floor(Math.random()*90000+10000),
-// 	reaiting: (Math.random()*4 + 1).toFixed(1),
-// 	reviews: Math.floor(Math.random()*7+10),
-// },
-// {	
-// 	imgUrl: 'files/Xiaomi-Redmi-Note-8-Pro.jpg',
-// 	name: 'XIAOMI',
-// 	description: 'Смартфон Xiaomi Redmi',
-// 	price: Math.floor(Math.random()*90000+10000),
-// 	reaiting: (Math.random()*4 + 1).toFixed(1),
-// 	reviews: Math.floor(Math.random()*7+10),
-// },
-// {	
-// 	imgUrl: 'files/Xiaomi-Redmi-Note-8-Pro.jpg',
-// 	name: 'XIAOMI',
-// 	description: 'Смартфон Xiaomi Redmi',
-// 	price: Math.floor(Math.random()*90000+10000),
-// 	reaiting:(Math.random()*4 + 1).toFixed(1),
-// 	reviews: Math.floor(Math.random()*7+10),
-// },
-// {	
-// 	imgUrl: 'files/Xiaomi-Redmi-Note-8-Pro.jpg',
-// 	name: 'XIAOMI',
-// 	description: 'Смартфон Xiaomi Redmi',
-// 	price: Math.floor(Math.random()*90000+10000),
-// 	reaiting: (Math.random()*4 + 1).toFixed(1),
-// 	reviews: Math.floor(Math.random()*7+10),
-// },
-// {	
-// 	imgUrl: 'files/Xiaomi-Redmi-Note-8-Pro.jpg',
-// 	name: 'XIAOMI',
-// 	description: 'Смартфон Xiaomi Redmi',
-// 	price: Math.floor(Math.random()*90000+10000),
-// 	reaiting: (Math.random()*4 + 1).toFixed(1),
-// 	reviews: Math.floor(Math.random()*7+10),
-// }
 function generateMassPhones () {
 	let massivePhones = [];
 	let countOfObject = Math.floor(Math.random() * 12 + 6);
 	for (let i = 0; i < countOfObject; i++){
 		massivePhones.push({	
-			imgUrl: 'files/Xiaomi-Redmi-Note-8-Pro.jpg',
+			imgUrl: urlStack[Math.floor(Math.random()*4)],
 			name: 'XIAOMI',
 			description: 'Смартфон Xiaomi Redmi',
 			price: Math.floor(Math.random()*90000+10000),
