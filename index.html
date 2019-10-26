@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>PhoneShop</title>
 </head>
-<body>
+<body onload="proccessingCards(dataPhones)">
 	<header class="wrapper">
 	<h2 class="title">hone</h2>
 	<form class="finder">
@@ -19,34 +19,13 @@
 		<div class="sort-block">	
 				<p class="sort-laber">Сортировать: </p> 
 				<ul class="types-of-sort">
-					<li class="sort-type"><a href="#" class="sort-link">price</a></li>
-					<li class="sort-type"><a href="#" class="sort-link">by raiting</a></li>
-					<li class="sort-type"><a href="#" class="sort-link">by reviews</a></li>
+					<li class="sort-type"><a href="#" class="sort-link" onclick="renderFilter(dataPhones,'price');">price</a></li>
+					<li class="sort-type"><a href="#" class="sort-link" onclick="renderFilter(dataPhones,'reaiting');">by raiting</a></li>
+					<li class="sort-type"><a href="#" class="sort-link" onclick="renderFilter(dataPhones,'reviews');">by reviews</a></li>
 				</ul>
 		</div>	
 		<div class="content-block">	
 			<section class="block-sect devisec-part">	
-				<section class="card-phone">	
-						<img src="files/Xiaomi-Redmi-Note-8-Pro.jpg" class="card-img">
-						<h3 class="phone-brand-name">XIAOMI</h3>
-						<p class="phone-name">Смартфон Xiaomi Redmi</p>
-						<p class="price">17 600 рублей</p>
-						<div class="reviews"><span class="span-rate">4.5</span><span class="span-review">17отзывов</span></div>
-				</section>	
-				<section class="card-phone">	
-						<img src="">
-						<h3>XIAOMI</h3>
-						<p>Смартфон Xiaomi Redmi</p>
-						<p class="price">17 600 рублей</p>
-						<div class="reviews"><span>4.5</span><span>17отзывов</span></div>
-				</section>	
-				<section class="card-phone">	
-						<img src="">
-						<h3>XIAOMI</h3>
-						<p>Смартфон Xiaomi Redmi</p>
-						<p class="price">17 600 рублей</p>
-						<div class="reviews"><span class="span-rate">4.5</span><span class="span-review">17отзывов</span></div>
-				</section>			
 			</section>
 			<section class="block-sect navigation-devices">	
 			</section>
