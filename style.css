@@ -130,7 +130,13 @@
 }
 
 @media only screen and (max-width: 600px){
+	.content {
+		width: 100%;
+	}
 	.card-phone{
 		width: 100%;
+	}
+	.content-block {
+		grid-template-columns: 100%;
 	}
 }
