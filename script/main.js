@@ -1,6 +1,7 @@
 'use strict'
 let urlStack = ['files/Xiaomi-Redmi-Note-8-Pro.jpg','files/Xiaomi-Redmi-Note-8-Pro-Pink.jpg','files/Xiaomi-Redmi-Note-8-Pro-Majenta.jpg','files/Xiaomi-Redmi-Note-8-Pro-Blue.jpg']
 let dataPhones = generateMassPhones();
+//generating phone's card
 function generateMassPhones () {
 	let massivePhones = [];
 	let countOfObject = Math.floor(Math.random() * 12 + 6);
@@ -15,6 +16,9 @@ function generateMassPhones () {
 			})
 	}
 	return massivePhones;
+}
+let pararms = {
+	
 }
 
 let createElement = function (nameTag, tagClass, tagTitle){
@@ -60,7 +64,7 @@ function prepareForReload (classNameForReload){
 	}
 }
 
-function sortByPrice(massivePhones,paramForSort) {
+function sortBy(massivePhones,paramForSort) {
 	for (let i = 0; i < massivePhones.length; i++){
 		for (let j = 1; j < massivePhones.length; j++){
 			if (massivePhones[j-1][paramForSort] > massivePhones[j][paramForSort]){
@@ -72,16 +76,20 @@ function sortByPrice(massivePhones,paramForSort) {
 	}
 	return massivePhones;
 }
-let IsActiveFilterByPrice = false;
+let IsActiveFilter = false;
+
 function renderFilter(dataAboutPhones,filterParam){
-	if(IsActiveFilterByPrice === false){
+	if(IsActiveFilter === false){
 		prepareForReload('.card-phone');
-		proccessingCards(sortByPrice(dataAboutPhones,filterParam));
-		IsActiveFilterByPrice = true;
+		proccessingCards(sortBy(dataAboutPhones,filterParam));
+		IsActiveFilter = true;
 	} 
 	else {
 		prepareForReload('.card-phone');
-		proccessingCards(sortByPrice(dataAboutPhones,filterParam).reverse());
-		IsActiveFilterByPrice = false;
+		proccessingCards(sortBy(dataAboutPhones,filterParam).reverse());
+		IsActiveFilter = false;
 	}
+}
+function renderParamsList (paramsList){
+
 }
