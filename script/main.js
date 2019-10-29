@@ -1,6 +1,9 @@
 'use strict'
 let urlStack = ['files/Xiaomi-Redmi-Note-8-Pro.jpg','files/Xiaomi-Redmi-Note-8-Pro-Pink.jpg','files/Xiaomi-Redmi-Note-8-Pro-Majenta.jpg','files/Xiaomi-Redmi-Note-8-Pro-Blue.jpg']
+let proccesor = ['MTK','SNAPDRAGON'];
+let nameOfParams = ['cores','proccessor','ram'];
 let dataPhones = generateMassPhones();
+
 //generating phone's card
 function generateMassPhones () {
 	let massivePhones = [];
@@ -13,12 +16,14 @@ function generateMassPhones () {
 			price: Math.floor(Math.random()*90000+10000),
 			reaiting: (Math.random()*4 + 1).toFixed(1),
 			reviews: Math.floor(Math.random()*7+10),
+			param: {
+				cores: Math.floor(Math.random()*6+2),
+				proccessor: proccesor[Math.floor(Math.random()*1)],
+				ram: Math.floor(Math.random()*6+2),
+				},
 			})
 	}
 	return massivePhones;
-}
-let pararms = {
-	
 }
 
 let createElement = function (nameTag, tagClass, tagTitle){
@@ -90,6 +95,11 @@ function renderFilter(dataAboutPhones,filterParam){
 		IsActiveFilter = false;
 	}
 }
-function renderParamsList (paramsList){
-
+function renderParamsList (paramsList,paramsName){
+	let navBlock = document.getElementsByClassName('params-list');
+	for (let i = 0; i < paramsList.param.length; i++){
+		let listItem = createElement('li','params-list-item');
+		let inputParams = createElement('input','input-params');
+		let inputLabel = createElement('label','input-label',paramsName[i]+': ' + paramsList.param[paramsName[i]]);
+	}
 }
