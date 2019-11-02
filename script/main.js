@@ -1,4 +1,33 @@
 'use strict'
+    // Функция ymaps.ready() будет вызвана, когда
+    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+ymaps.ready(init);
+function init(){
+// Создание карты.
+	var myMap = new ymaps.Map("map-block", {
+	    // Координаты центра карты.
+	    // Порядок по умолчанию: «широта, долгота».
+	    // Чтобы не определять координаты центра карты вручную,
+	    // воспользуйтесь инструментом Определение координат.
+	    center: [60.002473, 30.296134],
+	    // Уровень масштабирования. Допустимые значения:
+	    // от 0 (весь мир) до 19.
+	    zoom: 13
+	});
+	let myOffice = new ymaps.GeoObject({
+		geometry: {
+			type: 'Point',
+			coordinates: [60.002970, 30.294911],
+		},
+		properties: {
+			hintContent: 'My office',
+			balloonContentBody: 'Actually my office',
+			iconCaption: 'Our office'
+		}
+	})
+	myMap.geoObjects.add(myOffice);
+}
+
 let urlStack = ['files/Xiaomi-Redmi-Note-8-Pro.jpg','files/Xiaomi-Redmi-Note-8-Pro-Pink.jpg','files/Xiaomi-Redmi-Note-8-Pro-Majenta.jpg','files/Xiaomi-Redmi-Note-8-Pro-Blue.jpg']
 let proccesor = ['MTK','SNAPDRAGON'];
 let nameOfParams = ['cores','proccessor','ram'];
@@ -17,15 +46,14 @@ function generateMassPhones () {
 			reaiting: (Math.random()*4 + 1).toFixed(1),
 			reviews: Math.floor(Math.random()*7+10),
 			param: {
-				cores: Math.floor(Math.random()*6+2),
-				proccessor: proccesor[Math.floor(Math.random()*1)],
-				ram: Math.floor(Math.random()*6+2),
+				"cores": Math.floor(Math.random()*6+2) ,
+				'proccessor': proccesor[Math.floor(Math.random()*2)] ,
+				'ram': Math.floor(Math.random()*6+2) ,
 				},
 			})
 	}
 	return massivePhones;
 }
-
 let createElement = function (nameTag, tagClass, tagTitle){
 	let tag = document.createElement(nameTag);
 	tag.classList.add(tagClass);
@@ -62,6 +90,7 @@ function proccessingCards (dataAboutPhones){
 		phoneBlocks.appendChild(createCard(dataAboutPhones[i]));
 	}
 }
+
 function prepareForReload (classNameForReload){
 	let tagsForReload = document.querySelectorAll(classNameForReload);
 	for (let tag = 0 ; tag < tagsForReload.length; tag++){
@@ -95,11 +124,28 @@ function renderFilter(dataAboutPhones,filterParam){
 		IsActiveFilter = false;
 	}
 }
-function renderParamsList (paramsList,paramsName){
-	let navBlock = document.getElementsByClassName('params-list');
-	for (let i = 0; i < paramsList.param.length; i++){
-		let listItem = createElement('li','params-list-item');
-		let inputParams = createElement('input','input-params');
-		let inputLabel = createElement('label','input-label',paramsName[i]+': ' + paramsList.param[paramsName[i]]);
-	}
-}
+// function renderParamsList (paramsList,paramsName){
+// 	let navBlock = document.querySelector('.params-list');
+// 	for (let i = 0; i < paramsName.length; i++){
+// 		let listItem = createElement('li','params-list-item');
+// 		let inputParams = createElement('input','input-params');
+// 		inputParams.type = 'checkbox';
+// 		inputParams.id = 'params-'+i;
+// 		let inputLabel = createElement('label','input-label',paramsName[i]+ ': ' + paramsList[0].param[paramsName[i]]);
+// 		inputLabel.for = 'params-'+i;
+// 		listItem.appendChild(inputParams);
+// 		listItem.appendChild(inputLabel);
+// 		navBlock.appendChild(listItem);
+// 	}
+// }
+// function initMap () {
+// 	// var letLong = new google.maps.LatLng(44.798609, -91.504912);
+
+// 	var mapOptions = {
+// 		zoom: 15,
+// 		mapTypeId: google.maps.MapTypeId.ROADMAP,
+// 		center: {lat: 44.79860, lng: 150.644}
+// 	};
+
+// 	var map = new google.maps.Map(document.getElementById('map-block'),mapOptions);
+// }

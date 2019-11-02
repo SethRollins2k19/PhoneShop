@@ -78,6 +78,7 @@
 	width: 100%;
 	grid-gap: 10px;
 }
+
 .block-sect {
 	border: 1.5px solid rgba(0,0,0,0.455);
 	display: flex;
@@ -92,6 +93,7 @@
 	padding: 10px;
 	text-align: center;
 	width: 30%;
+	min-width: 200px;
 	border: 2px solid lightgray;
 }
 .card-img {
@@ -129,7 +131,19 @@
 	padding: 2px;
 }
 .nav-devices{
+	display: flex;
+	flex-direction: column;
 	width: 100%;
+}
+#map-block{
+	padding: 15px;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 200px;
+	background-clip: content-box;
+	min-height: 150px;
+	height: 10%;
+	max-height: 300px;
 }
 .params-list {
 	list-style: none;
@@ -150,7 +164,23 @@
 .params-list-item label {
 	width: 70%;
 }
-
+@media only screen and (max-width: 1100px){
+	.content {
+		width: 100%;
+	}
+	.card-phone{
+		width: 45%;
+	}
+	.content-block {
+		grid-template-columns: 100%;
+	}
+	#map-block {
+		margin: 15px auto;
+		border: 1px solid black;
+		max-width: 80%;
+		height: 500px;
+	}
+}
 @media only screen and (max-width: 600px){
 	.content {
 		width: 100%;
@@ -160,5 +190,11 @@
 	}
 	.content-block {
 		grid-template-columns: 100%;
+	}
+	#map-block {
+		margin: 15px auto;
+		border: 1px solid black;
+		max-width: 80%;
+		height: 500px;
 	}
 }
