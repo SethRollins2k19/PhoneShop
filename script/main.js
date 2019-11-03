@@ -1,4 +1,52 @@
 'use strict'
+ 
+let urlStack = ['files/Xiaomi-Redmi-Note-8-Pro.jpg','files/Xiaomi-Redmi-Note-8-Pro-Pink.jpg','files/Xiaomi-Redmi-Note-8-Pro-Majenta.jpg','files/Xiaomi-Redmi-Note-8-Pro-Blue.jpg']
+let proccesor = ['MTK','SNAPDRAGON'];
+let nameOfParams = ['cores','proccessor','ram'];
+let dataPhones = generateMassPhones();
+
+// drag'n'drop variables 
+let markerMin = document.querySelector('.marker-min');
+let markerMax = document.querySelector('.marker-max');
+let range = document.getElementsByClassName('range');
+
+
+let isDrag = false;
+let limits = {
+	left: 0,
+	right: range[0].offsetWidth +80
+}
+console.log (limits.right)
+markerMin.onmousedown = function(e) {
+  isDrag = true;
+}
+document.onmouseup = function() {
+  isDrag = false;
+}
+document.onmousemove = function(e) {
+  if (isDrag) {
+    move(e);
+  }
+}
+function move(e) {
+	
+  let newLocation = limits.left;
+  if (e.pageX > limits.right){
+  	newLocation = limits.right - markerMin.offsetWidth/2;
+  } else if (e.pageX > limits.left) {
+  	newLocation = e.pageX;
+  }
+  // if (e.pageX > limits.right) {
+  //   newLocation.x = limits.right;
+  // } else if (e.pageX > limits.left) {
+  //   newLocation.x = e.pageX;
+  // }
+  relocate(newLocation);
+}
+function relocate(newLocation) {
+  markerMin.style.left = newLocation + 'px';
+}
+
     // Функция ymaps.ready() будет вызвана, когда
     // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
 ymaps.ready(init);
@@ -27,12 +75,6 @@ function init(){
 	})
 	myMap.geoObjects.add(myOffice);
 }
-
-let urlStack = ['files/Xiaomi-Redmi-Note-8-Pro.jpg','files/Xiaomi-Redmi-Note-8-Pro-Pink.jpg','files/Xiaomi-Redmi-Note-8-Pro-Majenta.jpg','files/Xiaomi-Redmi-Note-8-Pro-Blue.jpg']
-let proccesor = ['MTK','SNAPDRAGON'];
-let nameOfParams = ['cores','proccessor','ram'];
-let dataPhones = generateMassPhones();
-
 //generating phone's card
 function generateMassPhones () {
 	let massivePhones = [];
