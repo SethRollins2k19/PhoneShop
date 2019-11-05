@@ -170,7 +170,6 @@
 	max-width: 900px;
 	background: green;
 	position: relative;
-
 }
 .marker {
 	position: absolute;
@@ -184,9 +183,26 @@
 .marker-max {
 	right: 0;
 }
+/*.modal  {
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%);
+	width: 500px;
+	height: 500px;
+}*/
+/*.modal {
+	position: fixed; 
+	top: 100px;
+	left: 50%; 
+	transform: translate(-50%); 
+	width: 500px; 
+	height: 500px;
+	background: green;
+
+}*/
 
 @media only screen and (max-width: 1100px){
-	.content {
+	.content { 
 		width: 100%;
 	}
 	.card-phone{

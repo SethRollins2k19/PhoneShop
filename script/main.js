@@ -187,6 +187,33 @@ document.onmousemove = function(e) {
     markerMin.move(e);
   }
 };
+let oneModalWin = false;
+function modalOpen () {
+	if(oneModalWin == false){
+		oneModalWin = true;
+		let modalBlock = document.createElement('div');
+		// modalBlock.classList.add('modal');
+		modalBlock.style.position = 'fixed';
+		modalBlock.style.left = "50%";
+		modalBlock.style.top = '100px';
+		modalBlock.style.transform = 'translate(-50%)';
+		modalBlock.style.width = '500px';
+		modalBlock.style.height = '500px';
+		modalBlock.style.background  = 'green';
+		let buttonClose = document.createElement('i');
+		buttonClose.classList.add('fas');
+		buttonClose.classList.add('fa-dot-circle');
+		buttonClose.style.textAling = 'left';
+		buttonClose.style.textSize = '60px';
+		buttonClose.style.color = 'black';
+		modalBlock.appendChild(buttonClose)
+		document.body.appendChild(modalBlock);
+	}
+}
+document.querySelector('.modal-open').addEventListener('click',(e) => {
+  modalOpen();
+});
+
 
 // function renderParamsList (paramsList,paramsName){
 // 	let navBlock = document.querySelector('.params-list');
