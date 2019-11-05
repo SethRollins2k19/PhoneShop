@@ -165,26 +165,24 @@
 	width: 70%;
 }
 .range {
-	margin: 0 auto;
 	height: 35px;
-	width: 80%;
+	width: 60%;
+	max-width: 900px;
 	background: green;
-	display: flex;
 	position: relative;
+
 }
 .marker {
-	position: relative;
+	position: absolute;
 	height: 15px;
-	width: 20px;
+	width: 10%;
 	background: yellow;
 }
 .marker-min {
-	margin-left: 0;
 	left: 0;
 }
 .marker-max {
-	left: 100%;
-	margin-left: -20px;
+	right: 0;
 }
 
 @media only screen and (max-width: 1100px){

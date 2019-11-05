@@ -3,49 +3,19 @@
 let urlStack = ['files/Xiaomi-Redmi-Note-8-Pro.jpg','files/Xiaomi-Redmi-Note-8-Pro-Pink.jpg','files/Xiaomi-Redmi-Note-8-Pro-Majenta.jpg','files/Xiaomi-Redmi-Note-8-Pro-Blue.jpg']
 let proccesor = ['MTK','SNAPDRAGON'];
 let nameOfParams = ['cores','proccessor','ram'];
+
+
 let dataPhones = generateMassPhones();
-
-// drag'n'drop variables 
-let markerMin = document.querySelector('.marker-min');
-let markerMax = document.querySelector('.marker-max');
 let range = document.getElementsByClassName('range');
-
-
 let isDrag = false;
 let limits = {
-	left: 0,
-	right: range[0].offsetWidth +80
-}
-console.log (limits.right)
-markerMin.onmousedown = function(e) {
-  isDrag = true;
-}
-document.onmouseup = function() {
-  isDrag = false;
-}
-document.onmousemove = function(e) {
-  if (isDrag) {
-    move(e);
-  }
-}
-function move(e) {
-	
-  let newLocation = limits.left;
-  if (e.pageX > limits.right){
-  	newLocation = limits.right - markerMin.offsetWidth/2;
-  } else if (e.pageX > limits.left) {
-  	newLocation = e.pageX;
-  }
-  // if (e.pageX > limits.right) {
-  //   newLocation.x = limits.right;
-  // } else if (e.pageX > limits.left) {
-  //   newLocation.x = e.pageX;
-  // }
-  relocate(newLocation);
-}
-function relocate(newLocation) {
-  markerMin.style.left = newLocation + 'px';
-}
+  left: 0,
+  right: range[0].offsetWidth
+};
+
+// drag'n'drop variables 
+
+
 
     // Функция ymaps.ready() будет вызвана, когда
     // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
@@ -166,6 +136,58 @@ function renderFilter(dataAboutPhones,filterParam){
 		IsActiveFilter = false;
 	}
 }
+
+
+
+
+
+class marker {
+	constructor (markerName){
+		this.markerName = document.querySelector(markerName);
+		this.markerName.onmousedown = function(e) {
+			isDrag = true;
+		}
+	}
+	setLocate(e) {
+		// console.log(e);
+		this.markerName.style.left = e + "px";
+	}
+	move(e) {
+		let newLocation = limits.left;
+		console.log(e.pageX);
+		if (e.pageX > limits.right - this.markerName.offsetWidth/2) {
+			console.log(limits.right);
+			newLocation = limits.right - this.markerName.offsetWidth;
+		} else if (e.pageX < limits.left) {
+			newLocation = limits.left - this.markerName.offsetWidth;
+		} else if (e.pageX >= limits.left + this.markerName.offsetWidth/2) {
+			newLocation = e.pageX - this.markerName.offsetWidth/2;
+		}
+		this.setLocate(newLocation);
+	}
+	// move(e) {
+	// 	let newLocation = limits.left;
+	// 	if (e.pageX > limits.right - this.markerName.offsetWidth/2) {
+	// 		console.log(limits.right);
+	// 		newLocation = limits.right - this.markerName.offsetWidth;
+	// 	} else if (e.pageX < limits.left) {
+	// 		newLocation = limits.left - this.markerName.offsetWidth;
+	// 	} else if (e.pageX >= limits.left + this.markerName.offsetWidth/2) {
+	// 		newLocation = e.pageX - this.markerName.offsetWidth/2;
+	// 	}
+	// 	this.setLocate(newLocation);
+	// }
+}
+let markerMin = new marker ('.marker-min');
+document.onmouseup = function() {
+  isDrag = false;
+};
+document.onmousemove = function(e) {
+  if (isDrag) {
+    markerMin.move(e);
+  }
+};
+
 // function renderParamsList (paramsList,paramsName){
 // 	let navBlock = document.querySelector('.params-list');
 // 	for (let i = 0; i < paramsName.length; i++){
