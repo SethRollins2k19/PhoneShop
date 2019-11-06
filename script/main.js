@@ -188,7 +188,7 @@ document.onmousemove = function(e) {
   }
 };
 let oneModalWin = false;
-function modalOpen () {
+function modalControl () {
 	if(oneModalWin == false){
 		oneModalWin = true;
 		let modalBlock = document.createElement('div');
@@ -198,20 +198,29 @@ function modalOpen () {
 		modalBlock.style.top = '100px';
 		modalBlock.style.transform = 'translate(-50%)';
 		modalBlock.style.width = '500px';
-		modalBlock.style.height = '500px';
-		modalBlock.style.background  = 'green';
-		let buttonClose = document.createElement('i');
-		buttonClose.classList.add('fas');
-		buttonClose.classList.add('fa-dot-circle');
-		buttonClose.style.textAling = 'left';
-		buttonClose.style.textSize = '60px';
-		buttonClose.style.color = 'black';
-		modalBlock.appendChild(buttonClose)
+		modalBlock.style.height = '200px';
+		modalBlock.style.background = 'lightgray';
+		modalBlock.style.border = '1px solid gray';
+		modalBlock.style.display = 'flex';
+		modalBlock.style.flexDirection = 'column';
+		modalBlock.classList.add('modal-block');
+		modalBlock.innerHTML = '<i class="fas fa-times" style = "margin: 5px 10px;align-self: flex-end;font-size: 30px;"></i><p style = "align-self: center;">Enter the woundered number</p><input type = "number" class="modal-input" style="width: 300px;align-self:center;"><button class="submtting" type="submit" style = "width: 150px;align-self:center;">Enter</button>';
 		document.body.appendChild(modalBlock);
+		let input = 0;
+		document.querySelector('.modal-input').addEventListener('change', (e) => {
+			input = document.querySelector('.modal-input').value;
+		})
+		if(oneModalWin){
+			document.querySelector('.fa-times').addEventListener('click',(e) => {
+				document.querySelector('.modal-block').remove();
+				oneModalWin = false;	
+			})
+		}
 	}
 }
+
 document.querySelector('.modal-open').addEventListener('click',(e) => {
-  modalOpen();
+  modalControl();
 });
 
 
