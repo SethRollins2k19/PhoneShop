@@ -101,8 +101,32 @@ function proccessingCards (dataAboutPhones){
 	for (let i = 0; i < dataAboutPhones.length;i++){
 		phoneBlocks.appendChild(createCard(dataAboutPhones[i]));
 	}
+	document.querySelector('.create-card').addEventListener('click',(e) => {
+		
+	});
 }
-
+function openModal(e){
+	let modal = document.querySelector('.modal-wrapper');
+	modal.style.display = 'block';
+	let buttonClose = document.querySelector('.close-modal');
+	buttonClose.addEventListener('click', (e)=>{modal.style.display = 'none'})
+	let modalImg = document.querySelector('.modal-src');
+	modalImg.addEventListener('change',(e) => {
+	  document.querySelector('.modal-img').src = modalImg.value;
+	});
+}
+// imgUrl: urlStack[Math.floor(Math.random()*4)],
+// 			name: 'XIAOMI',
+// 			description: 'Смартфон Xiaomi Redmi',
+// 			price: Math.floor(Math.random()*90000+10000),
+// 			reaiting: (Math.random()*4 + 1).toFixed(1),
+// 			reviews: Math.floor(Math.random()*7+10),
+// 			param: {
+// 				"cores": Math.floor(Math.random()*6+2) ,
+// 				'proccessor': proccesor[Math.floor(Math.random()*2)] ,
+// 				'ram': Math.floor(Math.random()*6+2) ,
+// 				},
+// 			})
 function prepareForReload (classNameForReload){
 	let tagsForReload = document.querySelectorAll(classNameForReload);
 	for (let tag = 0 ; tag < tagsForReload.length; tag++){
@@ -187,41 +211,41 @@ document.onmousemove = function(e) {
     markerMin.move(e);
   }
 };
-let oneModalWin = false;
-function modalControl () {
-	if(oneModalWin == false){
-		oneModalWin = true;
-		let modalBlock = document.createElement('div');
-		// modalBlock.classList.add('modal');
-		modalBlock.style.position = 'fixed';
-		modalBlock.style.left = "50%";
-		modalBlock.style.top = '100px';
-		modalBlock.style.transform = 'translate(-50%)';
-		modalBlock.style.width = '500px';
-		modalBlock.style.height = '200px';
-		modalBlock.style.background = 'lightgray';
-		modalBlock.style.border = '1px solid gray';
-		modalBlock.style.display = 'flex';
-		modalBlock.style.flexDirection = 'column';
-		modalBlock.classList.add('modal-block');
-		modalBlock.innerHTML = '<i class="fas fa-times" style = "margin: 5px 10px;align-self: flex-end;font-size: 30px;"></i><p style = "align-self: center;">Enter the woundered number</p><input type = "number" class="modal-input" style="width: 300px;align-self:center;"><button class="submtting" type="submit" style = "width: 150px;align-self:center;">Enter</button>';
-		document.body.appendChild(modalBlock);
-		let input = 0;
-		document.querySelector('.modal-input').addEventListener('change', (e) => {
-			input = document.querySelector('.modal-input').value;
-		})
-		if(oneModalWin){
-			document.querySelector('.fa-times').addEventListener('click',(e) => {
-				document.querySelector('.modal-block').remove();
-				oneModalWin = false;	
-			})
-		}
-	}
-}
+// let oneModalWin = false;
+// function modalControl () {
+// 	if(oneModalWin == false){
+// 		oneModalWin = true;
+// 		let modalBlock = document.createElement('div');
+// 		// modalBlock.classList.add('modal');
+// 		modalBlock.style.position = 'fixed';
+// 		modalBlock.style.left = "50%";
+// 		modalBlock.style.top = '100px';
+// 		modalBlock.style.transform = 'translate(-50%)';
+// 		modalBlock.style.width = '500px';
+// 		modalBlock.style.height = '200px';
+// 		modalBlock.style.background = 'lightgray';
+// 		modalBlock.style.border = '1px solid gray';
+// 		modalBlock.style.display = 'flex';
+// 		modalBlock.style.flexDirection = 'column';
+// 		modalBlock.classList.add('modal-block');
+// 		modalBlock.innerHTML = '<i class="fas fa-times" style = "margin: 5px 10px;align-self: flex-end;font-size: 30px;"></i><p style = "align-self: center;">Enter the woundered number</p><input type = "number" class="modal-input" style="width: 300px;align-self:center;"><button class="submtting" type="submit" style = "width: 150px;align-self:center;">Enter</button>';
+// 		document.body.appendChild(modalBlock);
+// 		let input = 0;
+// 		document.querySelector('.modal-input').addEventListener('change', (e) => {
+// 			input = document.querySelector('.modal-input').value;
+// 		})
+// 		if(oneModalWin){
+// 			document.querySelector('.fa-times').addEventListener('click',(e) => {
+// 				document.querySelector('.modal-block').remove();
+// 				oneModalWin = false;	
+// 			})
+// 		}
+// 	}
+// }
 
-document.querySelector('.modal-open').addEventListener('click',(e) => {
-  modalControl();
-});
+// document.querySelector('.modal-open').addEventListener('click',(e) => {
+//   modalControl();
+// });
 
 
 // function renderParamsList (paramsList,paramsName){
